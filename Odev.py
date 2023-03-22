@@ -26,7 +26,6 @@ print(type(baslik))
 p = 5
 s = 55
 print(p>s)
-
 # list : Listeleme yapar.
 x = ["Samsun","İstanbul","Edirne"]
 print(x)
