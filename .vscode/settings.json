@@ -6,5 +6,12 @@
     "python.testing.pytestEnabled": true,
     "python.analysis.extraPaths": [
         "./constants"
+    ],
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        ".",
+        "-p",
+        "test_*.py"
     ]
 }

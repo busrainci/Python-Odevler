@@ -11,7 +11,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from webdriver_manager.chrome import ChromeDriverManager
 
-class Testcheckoutemptyname():
+class Testcheckoutsuccess():
   def setup_method(self, method):
     self.driver = webdriver.Chrome(ChromeDriverManager().install())
     self.vars = {}
@@ -19,7 +19,7 @@ class Testcheckoutemptyname():
   def teardown_method(self, method):
     self.driver.quit()
   
-  def test_checkoutemptyname(self):
+  def test_checkoutsuccess(self):
     self.driver.get("https://www.saucedemo.com/")
     self.driver.maximize_window()
     WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"username\"]")))
@@ -27,7 +27,6 @@ class Testcheckoutemptyname():
     self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"username\"]").send_keys("standard_user")
     self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"password\"]").click()
     WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"password\"]")))
-    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"password\"]").click()
     self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"password\"]").send_keys("secret_sauce")
     WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"login-button\"]")))
     self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"login-button\"]").click()
@@ -37,34 +36,15 @@ class Testcheckoutemptyname():
     self.driver.find_element(By.LINK_TEXT, "1").click()
     WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"checkout\"]")))
     self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"checkout\"]").click()
+    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"firstName\"]")))
+    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"firstName\"]").click()
+    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"firstName\"]").send_keys("admin")
     self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"lastName\"]").click()
     WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"lastName\"]")))
-    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"lastName\"]").send_keys("inci")
+    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"lastName\"]").send_keys("kullanici")
     self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"postalCode\"]").click()
     WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"postalCode\"]")))
-    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"postalCode\"]").send_keys("22100")
+    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"postalCode\"]").send_keys("123456")
     WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"continue\"]")))
     self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"continue\"]").click()
-    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"error\"]")))
-    assert self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"error\"]").text == "Error: First Name is required"
-    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"lastName\"]")))
-    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"lastName\"]").click()
-    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"lastName\"]").send_keys("akil")
-    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"postalCode\"]").click()
-    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"postalCode\"]")))
-    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"postalCode\"]").send_keys("23652")
-    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"continue\"]")))
-    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"continue\"]").click()
-    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, ".error-message-container")))
-    assert self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"error\"]").text == "Error: First Name is required"
-    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"lastName\"]")))
-    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"lastName\"]").click()
-    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"lastName\"]").send_keys("altan")
-    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"postalCode\"]").click()
-    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"postalCode\"]")))
-    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"postalCode\"]").send_keys("45896")
-    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"continue\"]")))
-    self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"continue\"]").click()
-    WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, "*[data-test=\"error\"]")))
-    assert self.driver.find_element(By.CSS_SELECTOR, "*[data-test=\"error\"]").text == "Error: First Name is required"
   
